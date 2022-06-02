@@ -1,0 +1,14 @@
+<h1>Result</h1>
+<% unless @legit %>
+  <p>Sorry but <strong><%= @word_string %></strong> can't be built out of <%= @generated_letters_string %>.</p>
+<% end %>
+
+<% if @legit && @score['found'] == false %>
+  <p>Sorry but <strong><%= @word_string %></strong> does not seem to be a valid English word...</p>
+<% end %>
+
+<% if @legit && @score['found'] == true %>
+  <p><strong>Congratulations!</strong> <%= @word_string %> is a valid English word!</p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
